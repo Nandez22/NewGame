@@ -1,4 +1,5 @@
-import pygame, sys, pygame.locals
+import pygame, sys, pygame
+from pygame.locals import *
 
 def set_screen(size, caption = False, resize = False):
     if caption != False:
@@ -242,6 +243,18 @@ class dropdown:
                         
     def getActive(self):
         return self.active_rect
+    
+    def style(self, colors = ('#222222','#333333'), txt_colors = ('#FFFFFF','#e0e0e0'), font = 'none', size = 12, rad = 0):
+        self.rect_selected = colors[0]
+        self.rect_unselected = colors[1]
+        self.dyn_unselected = colors[1]
+        
+        self.txt_selected = txt_colors[0]
+        self.txt_unselected = txt_colors[1]
+        
+        self.format = pygame.font.SysFont(font,size)
+        self.rad = rad
+        #! RAD not recommended -- Looks like dookie
 
 def draw_box(surface, pos, size, color, rad, alignment = 'topleft'):
 
